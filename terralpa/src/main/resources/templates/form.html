@@ -1,75 +1,152 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Title</title>
     <!-- development version, includes helpful console warnings -->
 </head>
 <body>
 <div th:fragment="content">
+    <div id="main">
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Registro Proyecto
+                        <small>Click to validate</small>
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
 
-    <div class="col-md-6 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Registro Proyecto <small>Click to validate</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-                <!-- start form for validation -->
-                <form id="demo-form" data-parsley-validate>
-                    <label for="fullname">Cantidad de Piso * :</label>
-                    <input type="number" id="fullname" class="form-control" name="fullname" required />
+                    <!-- start form for validation -->
+                    <form id="demo-form" data-parsley-validate>
+                        <label for="fullname">Cantidad de Piso * :</label>
+                        <input v-model="aux" type="number" class="form-control" required/>
 
                         <br/>
-                        <span class="btn btn-primary">Validate form</span>
+                        <span data-ajax="true" v-on:click="metodo" class="btn btn-primary">GUARDAR</span>
 
-                </form>
-                <!-- end form for validations -->
-                <ul id="example-1">
-                    <li v-for="6">
-                        a
-                    </li>
-                </ul>
+                    </form>
+                    <!-- end form for validations -->
+                    <div v-if="divM">
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div v-for="i in numPiso ">
+
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+
+                        <!-- start form for validation -->
+                        <form id="demo-form" data-parsley-validate>
+                            <label>Cantidad de Piso * :</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" > Checked
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="flat" > Checked
+                                </label>
+                            </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div><div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" > Checked
+                            </label>
+                        </div>
+
+                        </form>
+                        <!-- end form for validations -->
+                    </div>
+
+
+                </div>
             </div>
 
 
-
+            <!-- -->
         </div>
-
-
-
     </div>
 
 
-
-
-
     <script th:inline="javascript">
-        var example1 = new Vue({
-            el: '#example-1',
+        var app = new Vue({
+            el: '#main',
             data: {
-                items: [
-                    { message: 'Foo' },
-                    { message: 'Bar' }
-                ]
-            }
-        })
+                divM: false,
+                numPiso: null,
+                numHab: null,
+                aux: null,
+                aux2: null,
+                aux21: null,
+                aux22: null,
+                aux23: null,
+                aux24: null,
+                aux25: null,
+                aux26: null,
+
+
+            },
+            methods: {
+                metodo: function (message) {
+                    this.numPiso = Number(this.aux);
+
+
+                },
+                metodo2: function (message) {
+                    this.numHab = Number(this.aux2);
+
+                },
+
+            }})
 
     </script>
 </div>
